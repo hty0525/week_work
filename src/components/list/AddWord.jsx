@@ -1,40 +1,47 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import {createWord} from '../../store/word'
+import {createWord,addWordMiddle} from '../../store/module/word'
+import { useNavigate } from 'react-router-dom';
+
 const AddWord = ()=>{
     const word = useRef()
     const wordDesc = useRef()
     const wordEx = useRef()
-    const setWord = useDispatch()
-
+    const navigate = useNavigate()
+    const addWord = useDispatch()
 
     const handleAdd = (e)=>{
-        e.preventDefault()
         const wordVlaue = word.current.value;
         const descVlaue = wordDesc.current.value;
         const exVlaue = wordEx.current.value;
-        setWord(createWord([wordVlaue,descVlaue,exVlaue]))
+        const wordId = Date.now()
+        // if(!wordVlaue||!descVlaue||!exVlaue){
+        //     e.preventDefault();
+        //     return alert("빈칸을 채워주세요")
+        // }
+        addWord(addWordMiddle(wordVlaue,descVlaue,exVlaue,wordId))
+        navigate('/')
     }
     return(
         <AddWrap onSubmit={handleAdd}>
             <FormBox>
                 <label htmlFor="word">
-                    단어
+                    단어 <span>(10자 이내로 작성해주세요)</span>
                 </label>
-                <input id='word' type="text" ref={word}/>
+                <input id='word' type="text" maxLength={10} ref={word}/>
             </FormBox>
             <FormBox>
                 <label htmlFor="wordDesc">
-                    설명
+                    설명 <span>(30자 이내로 작성해주세요)</span>
                 </label>
-                <input id='wordDesc' type="text" ref={wordDesc}/>
+                <input id='wordDesc' type="text" maxLength={30} ref={wordDesc}/>
             </FormBox>
             <FormBox>
                 <label htmlFor="wordEx">
-                    예시
+                    예시 <span>(10자 이내로 작성해주세요)</span>
                 </label>
-                <input id='wordEx' type="text" ref={wordEx}/>
+                <input id='wordEx' type="text" maxLength={10} ref={wordEx}/>
             </FormBox>
             <AddBtn onClick={handleAdd}>
                 추가버튼

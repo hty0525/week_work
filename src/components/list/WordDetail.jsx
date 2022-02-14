@@ -1,7 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteWordMiddle } from '../../store/module/word';
+import { useNavigate } from 'react-router-dom';
 const WordDetail = ({word})=>{
+    const deletePatch = useDispatch()
+    const navigate = useNavigate()
+    
+    const deleteWord = (e)=>{
+        // e.target.parentNode.parentNode.remove()
+        deletePatch(deleteWordMiddle(word.id))
+    }
+
+
+    
+
+    const editWord = ()=>{
+        navigate('/edit', {state:word})
+    }
     return(
         <WordItemWrap>
             <WordItem>
@@ -16,6 +32,14 @@ const WordDetail = ({word})=>{
                 <p>예시</p>
                 <h2>{word.ex}</h2>
             </WordItem>
+            <DeleteBtnBox>
+                <DetailBtn onClick={deleteWord}>
+                    삭제하기
+                </DetailBtn>
+                <DetailBtn className='editBtn' onClick={editWord}>
+                    수정하기
+                </DetailBtn>
+            </DeleteBtnBox>
         </WordItemWrap>
     )
 };
@@ -26,7 +50,8 @@ const WordItemWrap = styled.li`
         border-radius:15px;
         width:47%;
         margin:1.5%;
-        ;
+        position: relative;
+        overflow:hidden;
     `
 
 const WordItem = styled.div`
@@ -44,6 +69,24 @@ const WordItem = styled.div`
         }
     }
 `
-
+const DetailBtn = styled.button`
+    cursor: pointer;
+    border-radius:9999px;
+    padding:10px 20px;
+    margin:0 20px;
+    transition:all 4s;
+    background:blue;
+    &:hover{
+        background:red;
+        color:red;
+    }
+`
+const DeleteBtnBox = styled.div`
+    width:100%;
+    margin-top:30px;
+    button:first-child{
+        margin:0;
+    }
+`
 
 export default WordDetail

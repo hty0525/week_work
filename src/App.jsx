@@ -1,7 +1,14 @@
+import React from 'react'
 import './App.css';
 import MainWrap from './components/main/Main'
+import { useDispatch} from 'react-redux';
+import { loadWordMiddle } from './store/module/word';
 
-function App() {
+const App = ()=> {
+  const dispatch = useDispatch();
+    React.useEffect(() => {
+        dispatch(loadWordMiddle())
+    }, [])
   return (
     <>
       <MainWrap/>
