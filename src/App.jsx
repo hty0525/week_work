@@ -8,7 +8,7 @@ const App = ()=> {
   const dispatch = useDispatch();
     React.useEffect(() => {
         dispatch(loadWordMiddle())
-    }, [])
+    }, [dispatch])
   return (
     <>
       <MainWrap/>

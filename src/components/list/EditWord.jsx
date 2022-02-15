@@ -1,17 +1,17 @@
 import React, { useRef } from 'react'
-import styled from 'styled-components';
-import {useDispatch} from 'react-redux';
-import {createWord} from '../../store/module/word'
 import {editWordMiddle} from '../../store/module/word';
+
+import {useDispatch} from 'react-redux';
+import styled from 'styled-components';
 import { useNavigate,useLocation } from 'react-router-dom';
 const EditWord = ()=>{
     const wordV = useRef()
     const wordDesc = useRef()
     const wordEx = useRef()
+    
     const editWord = useDispatch()
     const navigate = useNavigate()
     const {id,desc,ex,word,date} = useLocation().state;
-    console.log(id,desc,ex,word)
     const handleEdit = (e)=>{
         navigate('/')
         const wordVlaue = wordV.current.value;

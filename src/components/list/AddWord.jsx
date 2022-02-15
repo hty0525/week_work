@@ -11,15 +11,11 @@ const AddWord = ()=>{
     const navigate = useNavigate()
     const addWord = useDispatch()
 
-    const handleAdd = (e)=>{
+    const handleAdd = ()=>{
         const wordVlaue = word.current.value;
         const descVlaue = wordDesc.current.value;
         const exVlaue = wordEx.current.value;
         const wordId = Date.now()
-        // if(!wordVlaue||!descVlaue||!exVlaue){
-        //     e.preventDefault();
-        //     return alert("빈칸을 채워주세요")
-        // }
         addWord(addWordMiddle(wordVlaue,descVlaue,exVlaue,wordId))
         navigate('/')
     }

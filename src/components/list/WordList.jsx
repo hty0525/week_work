@@ -6,16 +6,15 @@ import {useSelector } from 'react-redux';
 
 const WordList = () => {
     const wordList = useSelector((state=>state.word.wordList))
-
     return (
         <WordUl>
             {
-                wordList.map((word,idx) =>
-                <WordDetail
-                    key={idx}
+                wordList.map((word) =>
+                word.date ?  <WordDetail
+                    key={word.date}
                     word={word}
                     id={word.id}
-                    />
+                    /> : null
                 )
             }
         </WordUl>

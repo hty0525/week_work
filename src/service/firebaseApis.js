@@ -12,17 +12,20 @@ class FirebaseApi {
         });
         return wordList
     }
+
     async addWord(word,desc,ex,date){
-        return await addDoc(collection(this.db, "word"), {
+        return  await addDoc(collection(this.db, "word"), {
                 word,
                 desc,
                 ex,
                 date
             })
     }
+
     async deleteWord(id){
         await deleteDoc(doc(this.db, "word", id));
     }
+
     async editWord(word,desc,ex,id,date){
         return await setDoc(doc(this.db, "word", id), {
             word,

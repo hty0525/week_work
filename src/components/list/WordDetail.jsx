@@ -1,26 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { deleteWordMiddle } from '../../store/module/word';
 import { useNavigate } from 'react-router-dom';
 const WordDetail = ({word})=>{
     const deletePatch = useDispatch()
     const navigate = useNavigate()
-    
     const deleteWord = (e)=>{
-        // e.target.parentNode.parentNode.remove()
         deletePatch(deleteWordMiddle(word.id))
     }
-
-
-    
-
     const editWord = ()=>{
         navigate('/edit', {state:word})
     }
     return(
         <WordItemWrap>
-            <WordItem>
+            <WordItem className={word.date}>
                 <p>단어</p>
                 <h2>{word.word}</h2>
             </WordItem>
@@ -74,13 +68,14 @@ const DetailBtn = styled.button`
     border-radius:9999px;
     padding:10px 20px;
     margin:0 20px;
-    transition:all 4s;
-    background:blue;
+    transition:all 1s;
+    background:powderblue;
     &:hover{
         background:red;
         color:red;
     }
 `
+
 const DeleteBtnBox = styled.div`
     width:100%;
     margin-top:30px;
@@ -88,5 +83,6 @@ const DeleteBtnBox = styled.div`
         margin:0;
     }
 `
+
 
 export default WordDetail

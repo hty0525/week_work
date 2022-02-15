@@ -36,7 +36,6 @@ export const loadWordMiddle = () =>{
         let wordList = null;
         await firebaseApis.getWord().then(item=>wordList = item)
         await wordList.sort((a,b)=>{return b.date-a.date})
-        console.log(wordList)
         dispatch(loadWord(wordList))
     }
 }

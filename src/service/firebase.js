@@ -8,12 +8,7 @@ import { getFirestore, doc,updateDoc,setDoc} from "firebase/firestore";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_KEY,
-  authDomain: "react-hanghae.firebaseapp.com",
-  projectId: "react-hanghae",
-  storageBucket: "react-hanghae.appspot.com",
-  messagingSenderId: "283694373706",
-  appId: "1:283694373706:web:f048da1082f8887198ffb3",
-  measurementId: "G-D3KV92P11K"
+  projectId: process.env.REACT_APP_ID,
 };
 // Initialize Firebase
 initializeApp(firebaseConfig)
