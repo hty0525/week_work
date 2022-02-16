@@ -25,7 +25,7 @@
 
 <img  src="https://img.shields.io/badge/react-00d8ff?style=for-the-badge&logo=react&logoColor=white">
 
-<img  src="https://img.shields.io/badge/redux-powderblue?style=for-the-badge&logo=redux&logoColor=white">
+<img  src="https://img.shields.io/badge/redux-7f42c3?style=for-the-badge&logo=redux&logoColor=white">
 
 <img  src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
 <img  src="https://img.shields.io/badge/firebase-red?style=for-the-badge&logo=firebase&logoColor=white">
