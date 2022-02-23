@@ -39,13 +39,16 @@ const WordDetail = ({word})=>{
 };
 
 const WordItemWrap = styled.li`
-        background:yellow;
+        background:white;
         padding:20px;
         border-radius:15px;
-        width:47%;
+        width:100%;
         margin:1.5%;
         position: relative;
         overflow:hidden;
+        transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        border-radius: 4px;
+        box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
     `
 
 const WordItem = styled.div`
@@ -68,11 +71,12 @@ const DetailBtn = styled.button`
     border-radius:9999px;
     padding:10px 20px;
     margin:0 20px;
-    transition:all 1s;
-    background:powderblue;
+    font-weight:bold;
+    transition:all 0.4s;
+    background:#eeeeee;
     &:hover{
-        background:red;
-        color:red;
+        background:black;
+        color:white;
     }
 `
 

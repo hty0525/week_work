@@ -11,7 +11,8 @@ const Main = () => {
         <MainWrap>
             <MainHead>
                 <AddBtn onClick={goAdd}>
-                    나만의 사전 추가하기
+                    <PlusLine></PlusLine>
+                    <PlusLine line="heiht"></PlusLine>
                 </AddBtn>
                 나만의 사전!
             </MainHead>
@@ -21,11 +22,10 @@ const Main = () => {
 };
 
 const MainWrap = styled.section`
-    width:70%;
+    width:100%;
     max-width:1200px;
     margin:0 auto;
     padding:100px 0;
-    background:powderblue;
     `
 
 const MainHead = styled.h1`
@@ -38,11 +38,24 @@ const MainHead = styled.h1`
 const AddBtn = styled.button`
     position:absolute;
     top:0;
-    left:0;
+    right:0;
     cursor:pointer;
-    padding:10px 10px;
-    border-radius:5555555555px;
-    background:green;
+    padding:22px;
+    border-radius:50%;
+    transition:all 0.4s;
+    border:3px solid black;
+    &:hover{
+        transform:scale(1.1) rotate(90deg);
+    }
+`
+const PlusLine = styled.span`
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:${props=>props.line? '70%' : '5px'};
+    height:${props=>props.line? '5px' : '70%'};
+    background:#333;
+    transform:translate(-50%,-50%);
 `
 
 export default Main;

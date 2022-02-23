@@ -6,6 +6,9 @@ import {useSelector } from 'react-redux';
 
 const WordList = () => {
     const wordList = useSelector((state=>state.word.wordList))
+    const wordList1 = useSelector((state=>state))
+    console.log(wordList)
+    console.log(wordList1)
     return (
         <WordUl>
             {
